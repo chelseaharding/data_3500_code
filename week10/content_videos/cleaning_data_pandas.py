@@ -20,8 +20,11 @@ df["Age"].fillna(df["Age"].median())
 # Fill missing embarkation ports with the most common one
 df["Embarked"].fillna(df["Embarked"].mode()[0])
 
-# change types where applicable
-df["Pclass"] = df["Pclass"].astype("category")
+# change column names and types where applicable
+df.rename(columns={'Pclass': 'Class'}, inplace=True)
+
+
+df["Class"] = df["Class"].astype("category")
 df["Survived"] = df["Survived"].astype("bool")
 print(df.dtypes)
 
